@@ -48,6 +48,8 @@ public class InformationNew extends RestAssuredTest {
                 .statusCode(200)
                 .body("nationality", equalTo("Romania"));
     }
+
+
     @Test
     public void deletePlayer(){
         given().delete("/information/3")
