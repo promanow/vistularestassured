@@ -49,6 +49,20 @@ public class InformationNew extends RestAssuredTest {
                 .body("nationality", equalTo("Romania"));
     }
 
+    @Test
+    public void shouldPatch2NewPlayer() {
+
+        JSONObject requestParams = new JSONObject();
+        String myName = RandomStringUtils.randomAlphabetic(10);
+        given().header("Content-Type", "application/json;charset=utf-8").when()
+                .body("{\"name\":\"Messi\"}")
+                .patch("/information/3")
+                .then()
+                .log().all()
+                .statusCode(200)
+                .body("name", equalTo("Messi"));
+    }
+
 
     @Test
     public void deletePlayer(){
